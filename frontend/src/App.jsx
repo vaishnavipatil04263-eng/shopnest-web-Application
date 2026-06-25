@@ -14,6 +14,7 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Card";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
+import OrderHistory from "./pages/OrderHistory";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Route path="/cart" element={<Cart/> } />
       <Route path="/checkout" element={<Checkout/> } />
       <Route path="/ordersuccess" element={<OrderSuccess/> } />
+      <Route path="/orders" element={<OrderHistory/> } />
       <Route path="/login" element={<Login/> } />
       <Route path="/register" element={<Register /> } />
       <Route path="/profile" element={<Profil/> } />

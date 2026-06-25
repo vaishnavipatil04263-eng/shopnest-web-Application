@@ -59,6 +59,7 @@ const Checkout = () => {
         name: 'ShopNest',
         description: 'Test Transaction',
         order_id: orderData.razorpayOrder.id,
+        image: 'https://cdn-icons-png.flaticon.com/512/3081/3081559.png',
         handler: async function (response) {
           const verifyRes = await fetch('/api/payment/verify-payment', {
             method: 'POST',
@@ -82,6 +83,31 @@ const Checkout = () => {
         },
         theme: {
           color: '#f97316'
+        },
+        config: {
+          display: {
+            blocks: {
+              banks: {
+                name: 'Pay using UPI',
+                instruments: [
+                  { method: 'upi' },
+                  { method: 'card' },
+                  { method: 'wallet' },
+                  { method: 'netbanking' }
+                ]
+              }
+            },
+            sequence: ['block.banks'],
+            preferences: {
+              show_default_blocks: true
+            }
+          }
+        },
+        modal: {
+          ondismiss: function() {
+            const fallback = window.confirm("Payment cancelled. Use Bypass Mode to place test order?");
+            if (fallback) bypassPayment();
+          }
         }
       };
       

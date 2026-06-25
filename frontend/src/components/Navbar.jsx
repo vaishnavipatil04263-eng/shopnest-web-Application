@@ -23,6 +23,11 @@ const Navbar = () => {
         <li>
           <Link to="/cart">Cart ({cartItems})</Link>
         </li>
+        {user && (
+          <li>
+            <Link to="/orders">Orders</Link>
+          </li>
+        )}
         {user ? (
           <>
             <li>
